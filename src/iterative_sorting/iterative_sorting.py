@@ -17,21 +17,20 @@ def selection_sort(arr):
 
     return arr
 
-
 # TO-DO:  implement the Bubble Sort function below
-# O(n^2) runtime | O(1) space
+# average O(n^2) runtime | O(1) space
 def bubble_sort(arr):
     swapped = True
-    traversed = 0
+    iterations = 0
     while swapped:
         swapped = False
-        for i in range(1, len(arr) - traversed):
+        for i in range(1, len(arr) - iterations):
             current = arr[i]
             prev = arr[i - 1]
             if current < prev:
                 arr[i], arr[i - 1] = arr[i - 1], arr[i]
                 swapped = True
-        traversed += 1
+        iterations += 1
     return arr
 
 '''
@@ -51,7 +50,9 @@ buckets.
 
 What is the time and space complexity of the counting sort algorithm?
 '''
-# O(max(n)) runtime | O(max(n)) space
+# O(n + m) runtime | O(m) space
+# where n is the size of arr, and
+# where m is the max num in arr
 def counting_sort(arr, maximum=None):
     if not arr: return arr
 
